@@ -4,24 +4,55 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+body.dark {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    to bottom,
+    rgb(var(--background-start-rgb)),
+    rgb(var(--background-end-rgb))
+  );
+}
+
+.header-title {
+  @apply text-white;
+}
+
+body:not(.dark) svg {
+  @apply text-white;
+}
+
+/* Cor da Header no Modo Claro */
+.header {
+  @apply bg-white;
+}
+
+/* Estilos para centralizar e adicionar aspecto moderno */
+.centered-container {
+  @apply max-w-lg mx-auto p-4 bg-red-900 rounded-lg shadow-lg;
+}
+
+/* Estilos para inputs e botões */
+input,
+button {
+  @apply px-2 py-1 rounded-md shadow-md;
+}
+
+input {
+  @apply border border-gray-300;
+}
+
+button {
+  @apply bg-blue-500 text-white cursor-pointer transition ease-in-out duration-200;
+}
+
+button:hover {
+  @apply bg-blue-600;
 }
